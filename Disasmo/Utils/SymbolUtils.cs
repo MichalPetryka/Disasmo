@@ -21,27 +21,27 @@ public static class SymbolUtils
             }
             else if (ms.MethodKind == MethodKind.Constructor)
             {
-                target = "*" + symbol.ContainingType.Name + ":.ctor";
+                target = "*." + symbol.ContainingType.Name + ":.ctor";
                 hostType = symbol.ContainingType.ToString();
                 methodName = "*";
             }
             else
             {
-                target = "*" + symbol.ContainingType.Name + ":" + symbol.Name;
+                target = "*." + symbol.ContainingType.Name + ":" + symbol.Name;
                 hostType = symbol.ContainingType.ToString();
                 methodName = symbol.Name;
             }
         }
         else if (symbol is IPropertySymbol)
         {
-            target = "*" + symbol.ContainingType.Name + ":get_" + symbol.Name + " " + "*" + symbol.ContainingType.Name + ":set_" + symbol.Name;
+            target = "*." + symbol.ContainingType.Name + ":get_" + symbol.Name + " " + "*" + symbol.ContainingType.Name + ":set_" + symbol.Name;
             hostType = symbol.ContainingType.ToString();
             methodName = symbol.Name;
         }
         else
         {
             // the whole class
-            target = symbol.Name + ":*";
+            target = "*." + symbol.Name + ":*";
             hostType = symbol.ToString();
             methodName = "*";
         }
