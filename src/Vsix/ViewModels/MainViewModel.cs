@@ -313,7 +313,7 @@ namespace Disasmo
                         return;
 
                     command = "";
-                    executable = Path.Combine(clrReleaseFolder, "ilc", "ilc.exe");
+                    executable = Path.Combine(clrReleaseFolder, "ilc-published", "ilc.exe");
 
                     command += $" \"{fileName}.dll\" ";
 
